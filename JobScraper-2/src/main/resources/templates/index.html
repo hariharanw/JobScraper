@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+        <title>JobScraper</title>
+	    <!-- Bootstrap CSS -->
+	    
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+	    <!---css3-->
+        <link rel="stylesheet" href="css/custom.css">
+		
+		
+		<!--google fonts -->
+	    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+	
+	
+	   <!--google material icon-->
+      <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
+
+  </head>
+  <body>
+  
+
+
+<div class="wrapper">
+     
+	  <div class="body-overlay"></div>
+	 
+	 <!---sidebardesign-->
+	 
+	 <div id="sidebar">
+		<div class="sidebar-header d-flex justify-content-center">
+			<h1><img src="img/sdlogo.png" class="img-fluid" style="max-width: 120px; height: auto;"/></h1>
+		 </div>
+	   
+		<ul class="list-unstyled component m-0">
+		  <li class="active">
+		  <a href="index.html" class="dashboard"><i class="material-icons">dashboard</i>dashboard</a>
+		  </li>
+		  
+		  <li class="dropdown">
+    			<a href="#" id="jobsLink"  data-toggle="collapse" aria-expanded="false">
+       				<i class="material-icons">work</i><span>Jobs </span>
+       				<select id="workspaceList" class="form-control">
+           			 <option value=''>select a workspace</option>
+            		<!-- Add more options if needed -->
+            		</select>
+       				
+   				 </a>
+       				 
+				</li>
+		   <li class="dropdown">
+		  <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false">
+		  
+		  <i class="material-icons">business</i>Companies</a>
+		  </li>
+		  
+		   <li class="dropdown">
+		  <a href="#homeSubmenu3" data-toggle="collapse" aria-expanded="false">
+		  <i class="material-icons">block</i>Ignored</a>
+		  </li>
+		  
+		  
+		   <li class="dropdown">
+		  <a href="#homeSubmenu4" data-toggle="collapse" aria-expanded="false">
+		  <i class="material-icons">notifications</i>Notifications</a>
+		  </li>
+
+		  <li>&nbsp;</li>
+		  <li>&nbsp;</li>
+		  <li>&nbsp;</li>
+		  <li>&nbsp;</li>
+		  
+		  <li class="dropdown">
+			<a href="#homeSubmenu10" data-toggle="collapse" aria-expanded="false">
+			<i class="material-icons">settings</i>Settings</a>
+			</li>
+	 </div>
+	 
+   <!---sidebar-design-close->
+   
+   
+   
+      <!-page-content start-->
+   
+      <div id="content">
+	     
+		  <!--top-navbar-start--> 
+		 
+		  <div class="top-navbar">
+		     <div class="xd-topbar">
+			     <div class="row">
+				     <div class="col-2 col-md-2 col-lg-1 order-2 order-md-1 align-self-center">
+					    <div class="xp-menubar">
+						    <span class="material-icons text-white">signal_cellular_alt</span>
+						</div>
+					 </div>
+					 <div class="col-10 col-md-6 col-lg-11 order-1 order-md-2">
+					 <nav class="navbar">
+						 <ul class="navbar-nav flex-row ml-auto ">
+							 <li class="dropdown nav-item">
+								 <a class="nav-link" href="#" data-toggle="dropdown">
+									<span class="mr-2">Hello, Elisa Williams </span>
+									 <img src="img/user.jpg" style = "width:45px; border-radius:50%;"/>
+								 </a>
+							 </li>
+						 </ul>
+					 </nav>
+					 </div>
+					 </div>
+			   </div>
+		  </div>
+		  <!---top-navbar-end--> 
+		  <div class="mx-2">
+			<table class="table-wrapper">
+				<thead>
+					<tr>
+						<!-- Jobs -->
+						<th class="border p-2 bg-gray-200 ">
+							<div class="text-center">
+								<span class="text-4xl block">244</span>
+								<i class="material-icons text-sm ">work</i>
+								<a href = "#" class = "no-underline text-lg block">Jobs</a>
+							</div>
+						</th>
+		
+						<!-- Companies -->
+						<th class="border p-2 bg-gray-200 ">
+							<div class="text-center">
+								<span class="text-4xl block">100</span>
+								<i class="material-icons text-sm ">business</i>
+								<a href="#" class="no-underline text-lg block">Companies</a>
+							</div>
+						</th>
+		
+						<!-- Ignored Companies -->
+						<th class="border p-0 bg-gray-200">
+							<div class="text-center">
+								<span class="text-4xl block">26</span>
+								<i class="material-icons text-sm ">block</i>
+								<a href="#" class="no-underline text-lg block">Ignored Companies</a>
+							</div>
+						</th>
+		
+						<!-- Pending Companies -->
+						<th class="border p-2 bg-gray-200">
+							<div class="text-center">
+								<a href="#" class="no-underline text-normal block">Pending Companies</a><br>
+								<i class="material-icons  text-center">arrow_drop_down</i>
+								<i class="fas fa-caret-down"></i>
+							</div>
+						</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="flex justify-between">
+			<div>
+				<p class="text-lg ">Running queries</p>
+			</div>
+			<div class="col-sm-6 p-2 flex justify-content-lg-end ">
+				<a href="#addWorkspacemodal" id="addworkspacebtn" class="btn btn-primary btn btn-sm" data-toggle="modal">
+					<i class="material-icons">&#xE147;</i>
+					<span>AddWorkspace</span>
+					</a>
+				<a href="#addToWorkspacemodal" id="addToworkspacebtn" class="btn btn-success btn btn-sm" data-toggle="modal" style="margin-left: 10px";>
+					<i class="material-icons">&#xE147;</i>
+					<span>AddToWorkspace</span>
+					</a>
+				
+			<div class="search-box-container bg-gray-200 p-0" style="margin-left: 10px;">
+				<input type="text" class="search-box" placeholder="Search queries...">
+			</div>
+			</div>
+			
+				
+		</div>
+		
+		  
+		   <!---main-content-start--> 
+		     
+		      <div class="main-content">
+			     <div class="row">
+				    <div class="col-md-12">
+						<div class="row">
+							
+						</div>
+						
+					   <div class="table-wrapper">
+					     
+						<div id="queryData">
+							<table class="table table-stripped table-hover">
+								<thead>
+									<tr>
+										<th></th>
+										<th>S.No</th>
+										<th>Job Title</th>
+										<th>Location</th>
+										<th>Created Date</th>
+										<th>Status</th>
+										<th>Jobs Count</th>
+										<th>View</th>
+									</tr>
+								</thead>
+								<tbody id="queryTableBody">
+									
+								</tbody>
+							</table>
+						</div>
+						 
+					   </div>
+					</div>
+					   <!---Add-Workspace-->
+					   <div class="modal fade" tabindex="-1" id="addWorkspacemodal" role="dialog">
+						<div class="modal-dialog" role="document">
+						  <div class="modal-content">
+							<div class="modal-header">
+							  <h5 class="modal-title">Add Workspace</h5>
+							  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							  </button>
+							</div>
+							<div class="modal-body">
+							  <div class="form-group">
+								  <label>Name</label>
+								  <input type="text" id="workspaceNameInput" class="form-control" required>
+							  </div>
+							<div class="modal-footer" >
+							  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+							  <button type="button" id ="saveWorkspaceBtn" class="btn btn-success">Save</button>
+							</div>
+						  </div>
+						</div>
+					  </div>
+					   
+					   <!---Add-Workspace-end-->
+					   <!--Add to Workspace start-->
+					    <div class="modal fade" tabindex="-1" id="addToWorkspacemodal" role="dialog">
+						<div class="modal-dialog" role="document">
+						  <div class="modal-content">
+							<div class="modal-header">
+							  <h5 class="modal-title">AddToWorkspace</h5>
+							  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							  </button>
+							</div>
+							<div class="modal-body">
+							  <div class="form-group">
+								  <label for="workspaceList">Workspace</label>
+								  <select id="workspaceList" class="form-control" required>
+   								 <option value="">Select a workspace</option>
+								</select>
+								  
+							  </div>
+							<div class="modal-footer" >
+							  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+							  <button type="button" id ="saveToworkspaceBtn" class="btn btn-success">Save</button>
+							</div>
+						  </div>
+						</div>
+					  </div>
+
+		  <!--Add to workspace end-->
+		    <!---main-content-end-->
+
+
+
+<!---complete html-->
+
+
+
+
+
+  
+     <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   <script src="js/jquery-3.3.1.slim.min.js"></script>
+   <script src="js/popper.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/jquery-3.3.1.min.js"></script>
+  
+  
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".xp-menubar").on('click', function () {
+            $("#sidebar").toggleClass('active');
+            $("#content").toggleClass('active');
+        });
+
+        $('.xp-menubar, .body-overlay').on('click', function () {
+            $("#sidebar, .body-overlay").toggleClass('show-nav');
+        });
+         
+          $("#workspaceList").hide();
+          
+      $('#jobsLink').on('dblclick', function(){
+			window.location.href = 'jobs.html';
+		});
+		 $('#jobsLink').on('click', function() {
+        // Show the workspaceList on single click
+        $("#workspaceList").show();
+    });
+		$("#jobsLink").on("mousedown", function(e) {
+            // Manually open the select dropdown by focusing on it
+            $("#workspaceList").focus();
+        });
+         $("#workspaceList").on("change", function() {
+        // Hide the workspaceList when an option is selected
+        $("#workspaceList").hide();
+    });
+        // Handler for Add Workspace Button Click
+        $('#saveWorkspaceBtn').on('click', function () {
+            // Get the workspace name from the input field
+            var workspaceName = $('#workspaceNameInput').val();
+
+            // Make an AJAX request to save the workspace
+            $.ajax({
+                type: 'POST',
+                url: '/Addworkspace/add',
+                contentType: 'application/json',
+                data: JSON.stringify({ name: workspaceName }), // Assuming your Workspace class has a 'name' field
+                success: function (response) {
+                    console.log('Workspace saved:', response);
+
+                    // Display a success message (you can customize this based on your needs)
+                    alert('Workspace saved successfully!');
+                    
+                    var workspaceList = $('#workspaceList');
+                    var listItem = $('<li>');
+                    var anchor = $('<a>');
+                    anchor.attr('href', '#');
+                    anchor.text(workspaceName); // Use the entered workspace name
+
+                    listItem.append(anchor);
+                    workspaceList.append(listItem);
+
+                    // Redirect to 'index.html' after successfully saving workspace
+                    window.location.href = 'index.html';
+                },
+                error: function (error) {
+                    console.error('Error saving workspace:', error);
+
+                    // Display an error message (you can customize this based on your needs)
+                    alert('Error saving workspace. Please try again.');
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+	$(document).ready(function () {
+    
+    // Toggle visibility of workspaceList when clicking the work icon
+    $('#workIcon').click(function () {
+        $('#workspaceList').toggle();
+    });
+ 	 $('#workspaceList').click(function (event) {
+        event.stopPropagation();
+    });
+    // Function to fetch and populate the dropdown
+    function populateJobsDropdown() {
+        var workspaceList = $('#workspaceList');
+
+        $.ajax({
+            type: 'GET',
+            url: '/Addworkspace/getAll',
+            success: function (workspaces) {
+                workspaceList.empty();
+
+                // Add a default option
+                workspaceList.append($('<option>', {
+                    value: '',
+                    text: 'Select a workspace'
+                }));
+
+                $.each(workspaces, function (index, workspace) {
+                    // Add each workspace as an option
+                    workspaceList.append($('<option>', {
+                        value: workspace.id,
+                        text: workspace.name
+                    }));
+                });
+            },
+            error: function (error) {
+                console.error('Error fetching workspaces:', error);
+                alert('Error fetching workspaces. Please try again.');
+            }
+        });
+    }
+
+    // Call the function to populate the dropdown on page load
+    populateJobsDropdown();
+});
+</script>
+<script>
+    $(document).ready(function () {
+        // Constant data
+        const createdDate = '16 Dec 2023';
+        const status = 'Active';
+        const jobsCount = 128;
+
+        // Function to fetch and populate the query data in the table
+        function populateQueryTable() {
+            var queryTableBody = $('#queryTableBody');
+
+            // Make an AJAX request to fetch queries
+            $.ajax({
+                type: 'GET',
+                url: '/queries/getAll',
+                success: function (queries) {
+                    // Clear existing rows
+                    queryTableBody.empty();
+
+                    // Add fetched queries to the table
+                    $.each(queries, function (index, query) {
+                        var row = $('<tr>');
+						 row.append('<td><input type="checkbox" class="query-checkbox" data-id="' + query.id + '"></td>');
+                        row.append('<td>' + (index + 1) + '</td>');
+                        row.append('<td>' + query.jobTitle + '</td>'); // Assuming QueryEntity has a 'jobTitle' property
+                        row.append('<td>' + query.location + '</td>'); // Assuming QueryEntity has a 'location' property
+                        row.append('<td>' + createdDate + '</td>'); // Use constant createdDate
+                        row.append('<td>' + status + '</td>'); // Use constant status
+                        row.append('<td>' + jobsCount + '</td>'); // Use constant jobsCount
+                        row.append('<td><i class="material-icons">visibility</i></td>'); // Use the "visibility" icon
+
+                        queryTableBody.append(row);
+                    });
+                },
+                error: function (error) {
+                    console.error('Error fetching queries:', error);
+                    // Handle error, e.g., display an alert
+                    alert('Error fetching queries. Please try again.');
+                }
+            });
+        }
+
+        // Call the function to populate the query table on page load
+        populateQueryTable();
+    });
+</script>
+
+
+  </body>
+  
+  </html>
